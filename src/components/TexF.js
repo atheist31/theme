@@ -4,11 +4,18 @@ const TexF = (props) => {
   const handleUp = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Upper Case","success")
   };
   const handleLow = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lower Case","success")
   };
+  const handleClear = () =>{
+    let newText = "";
+    setText(newText)
+    props.showAlert("Text Clear","Success")
+  }
   const handleOnChange = (e) => {
     setText(e.target.value);
   };
@@ -38,6 +45,9 @@ const TexF = (props) => {
         </button>
         <button className="btn btn-success mx-3" onClick={handleLow}>
           Convert to Lower
+        </button>
+        <button className="btn btn-success mx-3" onClick={handleClear}>
+         Clear Text
         </button>
       </div>
       <div className="container my-3" style={{color: props.mode === "dark" ? "white" : "black" }}>
